@@ -18,6 +18,7 @@ export const findFileDependencies = (fileAbsolutePath: string, fileCodeString: s
         "typescript",
         "jsx",
         "decorators-legacy",
+        "explicitResourceManagement",
       ]
     })
     traverse(ast, {
