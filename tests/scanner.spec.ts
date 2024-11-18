@@ -36,4 +36,9 @@ describe('scanner related test', () => {
     const result = scanDirectoryWithResult(join(__dirname, `./testproject9`));
     expect(result.haveCycle).toBe(false);
   });
+
+  it('should not have false positives on .d.ts files', () => {
+    const result = scanDirectoryWithResult(join(__dirname, `./testproject10`));
+    expect(result.haveCycle).toBe(false);
+  });
 })

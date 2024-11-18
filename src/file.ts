@@ -57,7 +57,8 @@ export const listAllFile = (dir: string, ext: Extension[] = []) => {
   return sync(pathJoin(dir, `./**/*.{${arrayJoin(ext, ",")}}`), {
     realpath: true,
     ignore: [
-      "**/node_modules/**"
+      "**/node_modules/**",
+      "**/*.d.ts",
     ]
   })
 }
@@ -114,4 +115,3 @@ export const mapScanResultToReportVO = (result: ScanResult): ReportVO => {
   }))
   return rt;
 }
-
