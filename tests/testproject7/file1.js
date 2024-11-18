@@ -1,5 +1,5 @@
 function init() {
-  const a = require("file2");
+  const a = require("./file2");
   a();
 }
 

@@ -237,7 +237,7 @@ exports[`scanner related test should support scan all projects: report for proje
     {
       "source": "tests/testproject7/file1.js",
       "target": "tests/testproject7/file2.js",
-      "value": "require("file2")",
+      "value": "require("./file2")",
     },
     {
       "source": "tests/testproject7/file1.js",

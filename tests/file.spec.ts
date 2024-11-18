@@ -11,7 +11,7 @@ describe('file list & resolve tests', () => {
   })
 
   test('should resolve path', () => {
-    const path = resolveFilePath(testfile5AbsPath, "d2/testfile2.js")
+    const path = resolveFilePath(testfile5AbsPath, "./d2/testfile2.js")
     expect(path).toEqual(testfile2AbsPath)
   })
 

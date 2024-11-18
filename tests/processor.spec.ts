@@ -57,7 +57,7 @@ describe('processor tests', () => {
       {
         fromFile: Proj7File1AbsPath,
         importFile: Proj7File2AbsPath,
-        code: 'require("file2")'
+        code: 'require("./file2")'
       },
       {
         fromFile: Proj7File1AbsPath,
