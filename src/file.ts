@@ -78,6 +78,7 @@ export const readFile = (absolutePath: string) => {
  * @param importFileRelativePath
  */
 export const resolveFilePath = (fromFileAbsolutePath: string, importFileRelativePath: string) => {
+  if (!importFileRelativePath.startsWith(".")) return "";
   const dir = dirname(fromFileAbsolutePath);
   const targetPath = join(dir, importFileRelativePath);
   // to do replace nodejs resolve function

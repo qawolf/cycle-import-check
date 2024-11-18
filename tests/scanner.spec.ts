@@ -32,4 +32,8 @@ describe('scanner related test', () => {
     }
   });
 
+  it('should not find cycles when importing a non-relative module with the same name as the file', () => {
+    const result = scanDirectoryWithResult(join(__dirname, `./testproject9`));
+    expect(result.haveCycle).toBe(false);
+  });
 })
