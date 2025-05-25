@@ -55,6 +55,7 @@ export const filterNodeDependenciesImport = (descriptions: FileImportDescription
  */
 export const listAllFile = (dir: string, ext: Extension[] = []) => {
   return sync(pathJoin(dir, `./**/*.{${arrayJoin(ext, ",")}}`), {
+    nodir: true,
     realpath: true,
     ignore: [
       "**/node_modules/**",
