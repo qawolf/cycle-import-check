@@ -3,14 +3,20 @@
 import "colors"
 import { cwd, exit as realExit, argv } from "process";
 import { error, log } from "console";
+import * as minimistPkg from "minimist";
 import { forEach, isEmpty } from "@newdash/newdash";
 import { scanDirectoryWithResult } from "./scanner";
 import { join, isAbsolute } from "path";
 import { mapAbsPathsToRelPaths } from "./file";
 
+// Align typings and the configuration of our project’s TypeScript compiler
+const minimist = (minimistPkg as unknown as { default: typeof minimistPkg }).default;
+
 const workspaceDir = cwd();
 
-var directory = argv[2]
+const params = minimist(argv.slice(2), {
+});
+var directory = params._[0];
 
 if (isEmpty(directory)) {
   directory = "."
