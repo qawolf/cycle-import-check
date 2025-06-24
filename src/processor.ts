@@ -26,16 +26,14 @@ export const findFileDependencies = (fileAbsolutePath: string, fileCodeString: s
         const { node } = p;
         if (node.source) {
           const importPath = node.source.value
-          // only relative module
-          if (importPath.startsWith(".")) {
-            const sourceFile = resolveFilePath(fileAbsolutePath, node.source.value)
-            if (sourceFile) {
-              result.push({
-                fromFile: fileAbsolutePath,
-                importFile: sourceFile,
-                code: fileCodeString.slice(node.start, node.end)
-              })
-            }
+          // Handle both relative modules and path aliases
+          const sourceFile = resolveFilePath(fileAbsolutePath, node.source.value)
+          if (sourceFile) {
+            result.push({
+              fromFile: fileAbsolutePath,
+              importFile: sourceFile,
+              code: fileCodeString.slice(node.start, node.end)
+            })
           }
         }
       },

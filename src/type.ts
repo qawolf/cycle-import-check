@@ -8,6 +8,14 @@ export interface PackageJson {
   devDependencies: { [devDepName: string]: string };
   peerDependencies: { [peerDepName: string]: string };
 }
+
+/**
+ * TypeScript compiler options for path mapping
+ */
+export interface TSConfigPaths {
+  baseUrl?: string;
+  paths?: { [key: string]: string[] };
+}
 /**
  * allowed file extensions
  */
