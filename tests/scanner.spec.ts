@@ -41,4 +41,19 @@ describe('scanner related test', () => {
     const result = scanDirectoryWithResult(join(__dirname, `./testproject10`));
     expect(result.haveCycle).toBe(false);
   });
+
+  it('should respect ignoring on the relative path', () => {
+    const result = scanDirectoryWithResult(join(__dirname, `./testproject11`), {
+      ignoreRegex: /^cycle/
+    });
+    expect(result.haveCycle).toBe(false);
+  });
+
+  it('should report a cycle if at least one file is not ignored', () => {
+    const result = scanDirectoryWithResult(join(__dirname, `./testproject11`), {
+      ignoreRegex: /cycle\/1/
+    });
+    expect(result.haveCycle).toBe(true);
+    expect(result.cycleList?.length).toBeGreaterThan(0);
+  });
 })

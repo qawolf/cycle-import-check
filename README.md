@@ -94,7 +94,7 @@ graph TD
 ## Usage
 
 ```bash
-npx cycle-import-check [a directory path]
+npx cycle-import-check [a directory path] --ignoreRegex='^dist'
 ```
 
 > detected

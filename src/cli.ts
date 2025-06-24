@@ -15,7 +15,9 @@ const minimist = (minimistPkg as unknown as { default: typeof minimistPkg }).def
 const workspaceDir = cwd();
 
 const params = minimist(argv.slice(2), {
+  string: "ignoreRegex",
 });
+
 var directory = params._[0];
 
 if (isEmpty(directory)) {
@@ -33,7 +35,9 @@ const exit = (code: number) => {
   realExit(code)
 }
 
-const result = scanDirectoryWithResult(directory)
+const result = scanDirectoryWithResult(directory, {
+  ignoreRegex: params.ignoreRegex ? new RegExp(params.ignoreRegex) : undefined,
+})
 if (result.haveCycle) {
   error(`Circular dependency existed in ${directory}`.red)
   forEach(result.cycleList, (cycle, index) => {
