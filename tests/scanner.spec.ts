@@ -57,7 +57,7 @@ describe('scanner related test', () => {
     expect(result.cycleList?.length).toBeGreaterThan(0);
   });
 
-  it.failing('should report cycles in a project with path aliases', () => {
+  it('should report cycles in a project with path aliases', () => {
     const result = scanDirectoryWithResult(join(__dirname, `./testproject12`));
     expect(result.haveCycle).toBe(true);
     expect(result.cycleList?.length).toBeGreaterThan(0);
